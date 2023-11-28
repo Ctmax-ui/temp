@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Adder</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .box {
+            background-color: #f2f2f2;
+            width: fit-content;
+            padding: 30px 50px;
+
+        }
+
+        .box form {
+            padding: 30px 30px;
+        }
+
+        .containMainul {
+            width: 100%;
+
+        }
+
+        .xItemSelectorClass {
+            padding: 3px;
+            margin-bottom: 5px;
+            color: #000000;
+            cursor: context-menu;
+            width: 100%;
+            list-style: decimal-leading-zero;
+            transition: all .2s ease;
+
+        }
+
+        .xItemSelectorClass:hover {
+            background-color: #bbbcbe;
+            color: #000;
+
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="box">
+
+        <form id="mainFormBoxZ">
+            <input type="text" placeholder="Add text" required>
+            <button type="button" id="btn-for-addtxt">ADD</button>
+        </form>
+
+        <ol class="containMainul">
+            <li class="xItemSelectorClass">Example. can remove it if you want</li>
+        </ol>
+
+    </div>
+
+    <script>
+
+        let mainFormBoxZ = document.getElementById('mainFormBoxZ');
+        let itemsFormMain = document.querySelector("#mainFormBoxZ input");
+        let btnForAddTxt = document.getElementById("btn-for-addtxt");
+
+        // console.log(btnForAddTxt);
+
+        btnForAddTxt.addEventListener("click", function () {
+
+            console.log(itemsFormMain.value);
+            let allItemsSelectII = document.createElement("li");
+
+
+
+            allItemsSelectII.innerText = itemsFormMain.value;
+
+
+            document.querySelector(".containMainul").append(allItemsSelectII);
+
+            document.querySelector("#mainFormBoxZ input").value = "";
+
+            // text adder end here. 
+
+
+            //the text remover.
+
+            allItemsSelectII.classList.add("xItemSelectorClass")
+
+            // console.log(allItemsSelectII.classList);
+            // console.log(document.querySelector("ul").childNodes);
+
+            let lli = document.querySelectorAll(".containMainul li");
+
+
+            // console.log(lli); //before conversion
+
+
+            const liConvertedToArray = Array.from(lli);//use it to conbert node, HTML collection to array
+
+            // console.log(lli);  //after conversion
+
+            liConvertedToArray.forEach(function (lCluster) {
+                lCluster.addEventListener("click", function () {
+                    // console.log("clicked", lCluster); //for debug if clicked or not.
+
+                    lCluster.remove(lCluster);
+                });
+            });
+
+        });
+
+
+
+
+
+        //end main js.
+
+
+
+        //for when hitting enter after writing the form this will prevent page from refreshing.
+
+        mainFormBoxZ.addEventListener('submit', function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Add your form submission logic here if needed
+
+            // Optionally, trigger the button click
+            btnForAddTxt.click();
+        });
+
+        document.addEventListener("keyup", function (e) {
+            if (e.keyCode == 13) {
+                btnForAddTxt.click();
+            };
+        });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
