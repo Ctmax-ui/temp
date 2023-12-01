@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll animation sideways</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="textc">SCROLL</h1>
+    </div>
+    <div class="container">
+        <div class="scroll-animation-lx">
+            <img src="Images/1.jpg" alt="img">
+        </div>
+        <div class="para-lx">
+            <h2>Lorem.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dignissimos nam repudiandae
+                minima deleniti, laudantium sit quos. Omnis nisi dolorem accusantium aliquid odit praesentium quam,
+                consectetur et deleniti eaque perferendis?
+            </p>
+            <button>Learn More!!</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="scroll-animation-rx">
+            <img src="Images/4.jpg" alt="img">
+        </div>
+        <div class="para-rx">
+            <h2>Lorem.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dignissimos nam repudiandae
+                minima deleniti, laudantium sit quos. Omnis nisi dolorem accusantium aliquid odit praesentium quam,
+                consectetur et deleniti eaque perferendis?
+            </p>
+            <button>Learn More!!</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="scroll-animation-lx">
+            <img src="Images/5.jpg" alt="img">
+        </div>
+        <div class="para-lx">
+            <h2>Lorem.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dignissimos nam repudiandae
+                minima deleniti, laudantium sit quos. Omnis nisi dolorem accusantium aliquid odit praesentium quam,
+                consectetur et deleniti eaque perferendis?
+            </p>
+            <button>Learn More!!</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="scroll-animation-rx">
+            <img src="Images/6.jpg" alt="img">
+        </div>
+        <div class="para-rx">
+            <h2>Lorem.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dignissimos nam repudiandae
+                minima deleniti, laudantium sit quos. Omnis nisi dolorem accusantium aliquid odit praesentium quam,
+                consectetur et deleniti eaque perferendis?
+            </p>
+            <button>Learn More!!</button>
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+    let thresholdValue = .3;
+
+
+    const scrollsecBox1 = document.querySelectorAll(".scroll-animation-lx");
+
+    const scrollObserveFun1 = new IntersectionObserver(function (scrollEntriesZ) {
+
+        scrollEntriesZ.forEach(function (scrollValueZ) {
+
+            scrollValueZ.target.classList.toggle("scroll-animation-on-lx", scrollValueZ.isIntersecting);
+
+
+            if (scrollValueZ.isIntersecting) {
+                scrollObserveFun1.unobserve(scrollValueZ.target)
+            };
+
+
+        });
+
+    }, { threshold: thresholdValue });
+
+    scrollsecBox1.forEach(function (scrollBoxes1) {
+        scrollObserveFun1.observe(scrollBoxes1);
+    });
+
+    const scrollsecBoxZ = document.querySelectorAll(".scroll-animation-rx");
+
+    const scrollObserveFunZ = new IntersectionObserver(function (scrollEntriesZ) {
+
+        scrollEntriesZ.forEach(function (scrollValueZ) {
+
+            scrollValueZ.target.classList.toggle("scroll-animation-on-rx", scrollValueZ.isIntersecting);
+
+
+            if (scrollValueZ.isIntersecting) {
+                scrollObserveFunZ.unobserve(scrollValueZ.target)
+            };
+
+
+        });
+
+    }, { threshold: thresholdValue });
+
+    scrollsecBoxZ.forEach(function (scrollBoxesZ) {
+        scrollObserveFunZ.observe(scrollBoxesZ);
+    });
+
+
+
+</script>
+
+</html>
