@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form submisson required</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section>
+
+        <form action="" id="main-form-box">
+
+            <div>
+                
+                <input type="text" id="user-name" value="" required placeholder="New User Name">
+            </div>
+
+
+            <input type="text" id="user-pass" value="" required placeholder="Password">
+
+
+            <h4 id="change-txt-warning" class="No">Your user name must be minimum 5 chracters and first chracter is
+                uppercase and it has to be end with a number</h4>
+
+            <button id="submit-but" type="button">Submit</button>
+
+        </form>
+
+    </section>
+    <!-- end  -->
+
+
+    <!-- <h6>TOlos</h6> -->
+
+
+
+
+    <!-- javaScript start here -->
+
+    <script>
+
+        let userName = document.querySelector("#user-pass");
+        const mainFormContain = document.getElementById("main-form-box");
+        const submitBtn = document.getElementById("submit-but");
+        let chxText = document.querySelector("#change-txt-warning");
+
+
+
+
+        submitBtn.addEventListener("click", function (e) {
+            // console.log(userName.value);
+
+            function isFirstCharacterUppercase(toup) {
+                return toup.charAt(0) === toup.charAt(0).toUpperCase();
+            };
+
+            const userInput = userName.value;
+            let x = 0;
+
+            // console.log(isFirstCharacterUppercase(userInput));
+
+            //check if the last chracter is ended with a number
+            function hasLastCharacterNumber(str) {
+                // Get the last character of the string
+                const lastChar = str.charAt(str.length - 1);
+
+                // Check if the last character is a number
+                return !isNaN(lastChar);
+            };
+
+            //This is a function for add a class to the h4 animation
+            function toggleText() {
+                if (chxText.classList.contains("add-animation") == false) {
+                    chxText.classList.add("add-animation");
+                } else {
+                    chxText.classList.remove("add-animation");
+                };
+            };
+
+
+
+            //the condition for the username
+            if (isFirstCharacterUppercase(userInput) == false) {
+                chxText.innerText = "Your Password First Chracters Must Be Uppercase ";
+                console.log(chxText.classList.contains("add-animation"));
+                toggleText();
+            }
+            else if (isFirstCharacterUppercase(userInput) == true && userName.value.length <= 6) {
+                chxText.innerText = "Your Password Must be Within 6 Chracters";
+                toggleText();
+            }
+            else if (!isNaN(userInput)) {
+                chxText.innerText = "Your Password Must be Alphabate First and Number";
+                toggleText();
+            }
+            else if (hasLastCharacterNumber(userInput) == false) {
+                chxText.innerText = "Your last Password Must be end with Number";
+                toggleText();
+            }
+            //add other condition here if required
+
+            else {
+                chxText.innerText = "Correct input"
+                x = 1
+                document.querySelector("#user-pass").value = "";
+                document.querySelector("#user-name").value = "";
+            };
+
+
+            console.log("The Final Value", x);
+
+
+            // The Final value will change wheres everything is correct like 0 to 1
+            if (x == 1) {
+                console.log("Everything Correct");
+            }
+
+            console.log("Password", userInput);
+
+
+
+
+
+
+
+
+            // end 
+        });
+
+
+
+
+
+
+        // for keyboard enter key
+        mainFormContain.addEventListener('submit', function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Add your form submission logic here if needed
+            // Optionally, trigger the button click
+            // btnForAddTxt.click();
+        });
+        document.addEventListener("keyup", function (e) {
+            if (e.keyCode == 13) {
+                submitBtn.click();
+            };
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //for show and hide password
+        function showPassFun() {
+            var showPass = document.getElementById("user-pass");
+            if (showPass.type === "password") {
+                showPass.type = "text";
+            } else {
+                showPass.type = "password";
+            }
+        };
+
+
+
+    </script>
+</body>
+
+</html>
