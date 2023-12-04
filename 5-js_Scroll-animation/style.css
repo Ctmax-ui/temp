@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container-full {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 100px;
+    padding: 40px;
+    background-color: #d6d3d3;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 2%;
+}
+
+.box1 img {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(120px);
+}
+
+.box2 p {
+    font-size: 30px;
+}
+
+.box2 button {
+    width: fit-content;
+    margin-top: 30px;
+    padding: 20px 90px;
+    font-size: 20px;
+}
+
+
+
+
+.anima-hide-image{
+    opacity: .1;
+    transform: translateY(100px);
+}
+.anima-show-image{
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: all .9s ease !important;
+}

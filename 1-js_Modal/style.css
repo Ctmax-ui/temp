@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.container{
+    width: 1140px;
+    margin: auto;
+    padding: 200px 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+}
+
+
+
+/* start modal */
+.modal-content-box{
+    width: 350px;
+    height: 240px;
+    border: 10px solid #c2bfbf;
+}
+.modal-content-box img{
+    width: 100%;
+    height: auto;
+    
+}
+
+
+.modal-hover-box{
+    width: 100%;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.582);
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-top: 5%;
+
+    opacity: 0;
+    pointer-events: none;
+}
+.modal-main-box{
+    margin: auto;
+    width: 50%;
+    height: auto;
+    /* background-color: rgb(97, 90, 90); */
+    
+    
+}
+.modal-main-box img{
+    border: 9px solid #d3d2d2;
+    width: 100%;
+    height: auto;
+    
+}
+
+/* end modal */
+
+.button-group{
+    display: flex;
+    justify-content: space-between;
+}
+.button-group button{
+    width: min-content;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #c300ff;
+    border: 2px solid transparent;
+    color: wheat;
+    text-transform: uppercase;
+    transition: all .5s ease-in-out;
+    border-radius: 10%;
+    cursor: pointer;
+}
+.button-group    button:hover{
+    background-color: #00ffaa;
+    border: 2px solid #fff;
+    color: #000;
+    border-radius: 5%;
+}
+

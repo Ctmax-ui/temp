@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js timer</title>
+    <style>
+        
+        h4,h3,h2,h1{
+            font-size: 50px;
+            width: min-content;
+            height: min-content;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bx1{
+            background-color: rgb(163, 160, 160);
+            display: grid;
+            grid-template-columns: auto auto;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bx1">
+        <h1>00</h1>
+        
+        <h4 class="counter">00</h4>
+    </div>
+
+    <h3>00</h3>
+
+    <script>
+        //aproch 1
+        let counterValue = 0;
+        let he1 = document.querySelector("h3");
+
+
+       let myCounter = setInterval(function(){
+
+            he1.innerText = ++counterValue;
+
+            if(counterValue == 120 ){
+                clearInterval(myCounter);
+            }
+
+        }, 10)
+
+
+
+
+
+        //aproch 2
+
+        
+
+        let h4 = document.body.querySelector("h4");
+        let h1 = document.body.querySelector("h1");
+
+        
+        setInterval(function(){
+
+            // console.log(h4.innerText);
+
+            if(h4.innerText < 60){
+                h4.innerText++
+            }
+            
+            else{
+                h4.innerText="00"
+            };
+            
+            //for changing h1
+            if(h4.innerText == "60"){
+                h1.innerText++
+                
+            };
+            
+        }, );
+    
+        
+        
+
+
+
+
+
+
+            // HOW TO USE TIME FUNCTION IN JS 
+        
+        /*
+        setTimeout(function(){
+
+            // console.log("hola");
+            
+        }, 2000);
+        */
+        // set timeout run the function only one time after page refresh, it will run when the mili-second 2000 will pass means 2 seconds. 
+
+        /*
+        setInterval(function(e){
+            console.log("Run run run");
+            
+        }, 10);
+        */
+        //set timeout run the function again and again infinite time after page refresh, it will run between when the mili-second 1000 will pass means 1 seconds.
+
+
+
+    </script>
+</body>
+</html>

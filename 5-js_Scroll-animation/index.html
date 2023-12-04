@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Scroll animation</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container-full" style="height: 100vh; text-align: center;">
+        <h1>Scroll</h1>
+    </div>
+
+
+    <div class="container-full">
+
+        <div class="box1">
+            <img src="./image/1.jpg" alt="img">
+        </div>
+
+        <div class="box2">
+            <p>
+                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sed minima
+                tenetur consectetur ea hic est animi dolor cum molestiae maiores officia nihil delectus, eos repellat!
+                Excepturi quidem provident qui deleniti tenetur. Consectetur exercitationem, fugiat hic at reprehenderit
+                saepe quos?
+            </p>
+            <button>Hello!!</button>
+        </div>
+    </div>
+
+    <body>
+        <div class="container-full">
+            <div class="box2">
+                <p>
+                    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sed
+                    minima
+                    tenetur consectetur ea hic est animi dolor cum molestiae maiores officia nihil delectus, eos
+                    repellat!
+                    Excepturi quidem provident qui deleniti tenetur. Consectetur exercitationem, fugiat hic at
+                    reprehenderit
+                    saepe quos?
+                </p>
+                <button>Hello!!</button>
+            </div>
+
+            <div class="box1">
+                <img src="./image/4.jpg" alt="img">
+            </div>
+
+        </div>
+
+
+        <body>
+            <div class="container-full">
+
+                <div class="box1">
+                    <img src="./image/3.jpg" alt="img">
+                </div>
+
+                <div class="box2">
+                    <p>
+                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sed
+                        minima
+                        tenetur consectetur ea hic est animi dolor cum molestiae maiores officia nihil delectus, eos
+                        repellat!
+                        Excepturi quidem provident qui deleniti tenetur. Consectetur exercitationem, fugiat hic at
+                        reprehenderit
+                        saepe quos?
+                    </p>
+                    <button>Hello!!</button>
+                </div>
+            </div>
+
+
+            <script>
+                let thresholdValue = .5; //the how much threshold value you have to in your element
+
+                const selectAllImages = document.querySelectorAll(".box1 img")
+
+
+                const observerSect = new IntersectionObserver(function (entities) {
+
+                    entities.forEach(function (entry) {
+
+
+                        entry.target.classList.toggle("anima-show-image", entry.isIntersecting);
+
+                        if(entry.isIntersecting){
+                            observerSect.unobserve(entry.target)
+                        };
+                    });
+
+
+                }, {threshold: thresholdValue});
+
+                selectAllImages.forEach(function (imageCollection) {
+
+                    observerSect.observe(imageCollection);
+                });
+
+
+
+
+
+            </script>
+        </body>
+
+</html>

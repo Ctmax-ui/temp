@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll animation sideways</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="textc">SCROLL</h1>
+    </div>
+    <div class="container">
+        <div class="scroll-animation-lx">
+            <img src="Images/1.jpg" alt="img">
+        </div>
+        <div class="para-lx">
+            <h2>Lorem.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dignissimos nam repudiandae
+                minima deleniti, laudantium sit quos. Omnis nisi dolorem accusantium aliquid odit praesentium quam,
+                consectetur et deleniti eaque perferendis?
+            </p>
+            <button>Learn More!!</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="scroll-animation-rx">
+            <img src="Images/4.jpg" alt="img">
+        </div>
+        <div class="para-rx">
+            <h2>Lorem.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dignissimos nam repudiandae
+                minima deleniti, laudantium sit quos. Omnis nisi dolorem accusantium aliquid odit praesentium quam,
+                consectetur et deleniti eaque perferendis?
+            </p>
+            <button>Learn More!!</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="scroll-animation-lx">
+            <img src="Images/5.jpg" alt="img">
+        </div>
+        <div class="para-lx">
+            <h2>Lorem.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dignissimos nam repudiandae
+                minima deleniti, laudantium sit quos. Omnis nisi dolorem accusantium aliquid odit praesentium quam,
+                consectetur et deleniti eaque perferendis?
+            </p>
+            <button>Learn More!!</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="scroll-animation-rx">
+            <img src="Images/6.jpg" alt="img">
+        </div>
+        <div class="para-rx">
+            <h2>Lorem.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dignissimos nam repudiandae
+                minima deleniti, laudantium sit quos. Omnis nisi dolorem accusantium aliquid odit praesentium quam,
+                consectetur et deleniti eaque perferendis?
+            </p>
+            <button>Learn More!!</button>
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+   let thresholdValue = 0.3;
+
+const scrollsecBoxes = document.querySelectorAll(".scroll-animation-lx, .scroll-animation-rx");
+// This line selects all elements with the classes "scroll-animation-lx" and "scroll-animation-rx"
+// using document.querySelectorAll. These classes are presumably assigned to elements you want to animate.
+
+const scrollObserveFun = new IntersectionObserver(function (scrollEntries) {
+    // This function will be called whenever the observed elements intersect with the viewport.
+
+    scrollEntries.forEach(function (scrollValue) {
+        // Iterate through each IntersectionObserverEntry in the scrollEntries array.
+
+        if (scrollValue.isIntersecting) {
+            // Check if the observed element is currently intersecting with the viewport.
+
+            const isLx = scrollValue.target.classList.contains("scroll-animation-lx");
+            const isRx = scrollValue.target.classList.contains("scroll-animation-rx");
+            // Check if the observed element has the class "scroll-animation-lx" or "scroll-animation-rx" 
+            // using the classList.contains method.
+
+            if (isLx) {
+                // If the observed element has the class "scroll-animation-lx":
+
+                scrollValue.target.classList.add("scroll-animation-on-lx");
+                // Add the class "scroll-animation-on-lx" to trigger the desired animation.
+
+                scrollObserveFun.unobserve(scrollValue.target);
+                // Stop observing this element to avoid unnecessary callbacks.
+            } else if (isRx) {
+                // If the observed element has the class "scroll-animation-rx":
+
+                scrollValue.target.classList.add("scroll-animation-on-rx");
+                // Add the class "scroll-animation-on-rx" to trigger the desired animation.
+
+                scrollObserveFun.unobserve(scrollValue.target);
+                // Stop observing this element to avoid unnecessary callbacks.
+            }
+        }
+    });
+}, { threshold: thresholdValue });
+// Here, an IntersectionObserver is created with a callback function (scrollEntries) 
+// that will be invoked whenever the observed elements intersect with the viewport.
+// The threshold property is set to thresholdValue, which determines the amount of intersection needed 
+// to trigger the callback.
+
+scrollsecBoxes.forEach(function (scrollBox) {
+    scrollObserveFun.observe(scrollBox);
+});
+// The forEach loop is used to iterate through all selected elements (scrollsecBoxes),
+// and each element is observed using the observe method of the IntersectionObserver.
+
+
+    // end 
+
+/*
+    let thresholdValue = .3;
+
+
+    const scrollsecBox1 = document.querySelectorAll(".scroll-animation-lx");
+
+    const scrollObserveFun1 = new IntersectionObserver(function (scrollEntriesZ) {
+
+        scrollEntriesZ.forEach(function (scrollValueZ) {
+
+
+
+            scrollValueZ.target.classList.toggle("scroll-animation-on-lx", scrollValueZ.isIntersecting);
+
+
+            if (scrollValueZ.isIntersecting) {
+                scrollObserveFun1.unobserve(scrollValueZ.target)
+            };
+
+
+        });
+
+    }, { threshold: thresholdValue });
+
+    scrollsecBox1.forEach(function (scrollBoxes1) {
+        scrollObserveFun1.observe(scrollBoxes1);
+    });
+
+
+    
+
+    const scrollsecBoxZ = document.querySelectorAll(".scroll-animation-rx");
+
+    const scrollObserveFunZ = new IntersectionObserver(function (scrollEntriesZ) {
+
+        scrollEntriesZ.forEach(function (scrollValueZ) {
+
+            scrollValueZ.target.classList.toggle("scroll-animation-on-rx", scrollValueZ.isIntersecting);
+
+
+            if (scrollValueZ.isIntersecting) {
+                scrollObserveFunZ.unobserve(scrollValueZ.target)
+            };
+
+
+        });
+
+    }, { threshold: thresholdValue });
+
+    scrollsecBoxZ.forEach(function (scrollBoxesZ) {
+        scrollObserveFunZ.observe(scrollBoxesZ);
+    });
+
+    */
+
+
+</script>
+
+</html>

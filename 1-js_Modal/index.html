@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal_Project</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="modal-content-box">
+            <img src="./Images/1.jpg" alt="">
+        </div>
+
+        <div class="modal-content-box">
+            <img src="./Images/2.jpg" alt="">
+        </div>
+
+        <div class="modal-content-box">
+            <img src="./Images/3.jpg" alt="">
+        </div>
+
+
+    </div>
+
+
+    <div class="modal-hover-box">
+        <div class="modal-main-box">
+            <img src="" alt="">
+            <div class="button-group">
+                <button>download</button>
+                <button>Shere</button>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const selectImage = document.querySelectorAll(".modal-content-box img");
+        const myImgMain = document.querySelector(".modal-hover-box");
+        const myImagePlacer = document.querySelector(".modal-main-box img");
+
+
+
+        selectImage.forEach(function (sltImage) {
+
+            sltImage.addEventListener("click", function () { //p1
+
+                //______FOR-Debuging On Click________
+                //console.log(sltImage.src);
+                //console.log(selectImage);
+                //console.log(myImagePlacer);
+                //console.log(myImgMain);
+
+                myImgMain.style = "opacity: 1;pointer-events: all;"
+                myImagePlacer.src = sltImage.src
+            }) //p1
+
+            myImgMain.addEventListener("click", function () {
+                myImgMain.style = "opacity: 0;   pointer-events: none;"
+            })
+
+
+
+        }); //end
+
+
+
+    </script>
+</body>
+
+</html>
