@@ -2,20 +2,44 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Source Code Pro', monospace;
 }
 
 body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	/* height: 100vh; */
   font-family: Arial, sans-serif;
 }
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+
 section {
   width: 400px;
   height: auto;
   overflow: hidden;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 8vh;
   padding: 20px 10px;
-  background: linear-gradient(45deg, #f2f2f2, #7e7e7e);
+  /* background: linear-gradient(45deg, #DF2935, #FDCA40  ); */
+
+  background: linear-gradient(-45deg, #f17e5b, #f14b8b, #35b8e7, #2de2b8);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +53,17 @@ section {
 #main-form-box input{
   margin-top: 20px;
   padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  outline: 2px solid #cfcfcf;
+  background: linear-gradient(-45deg, #f17e5b, #f14b8b, #35b8e7, #2de2b8);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+  border: none;
+}
+section form h2{
+  padding-bottom: 10px;
+  color: #1a1919;
 }
 
 section form h4 {
@@ -41,10 +76,15 @@ section form h4 {
 
 #submit-but{
   padding: 10px 30px;
-  font-size: 20px;
+  font-size: 17px;
   text-transform: uppercase;
   cursor: pointer;
   border: 2px solid #000 ;
+  background: linear-gradient(-45deg, #f17e5b, #f14b8b, #35b8e7, #2de2b8);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+
+
   transition: all .5s ease;
   border-radius: 5px;
 }

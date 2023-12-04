@@ -6,16 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form submisson required</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    
     <section>
+        
 
         <form action="" id="main-form-box">
-
+            <h2>Create a new account</h2>
             <div>
                 
                 <input type="text" id="user-name" value="" required placeholder="New User Name">
+            </div>
+            <div>
+                
+                <input type="email" id="user-mail" value="" required placeholder="Place Your Email">
             </div>
 
 
@@ -89,7 +98,7 @@
                 toggleText();
             }
             else if (isFirstCharacterUppercase(userInput) == true && userName.value.length <= 6) {
-                chxText.innerText = "Your Password Must be Within 6 Chracters";
+                chxText.innerText = "Your Password Must be Minimum 6 Chracters";
                 toggleText();
             }
             else if (!isNaN(userInput)) {
@@ -103,23 +112,24 @@
             //add other condition here if required
 
             else {
-                chxText.innerText = "Correct input"
+                chxText.innerText = "Account Created Succesfully"
                 x = 1
                 document.querySelector("#user-pass").value = "";
                 document.querySelector("#user-name").value = "";
+                document.querySelector("#user-mail").value = "";
             };
 
-
             console.log("The Final Value", x);
-
-
+            
+            
             // The Final value will change wheres everything is correct like 0 to 1
             if (x == 1) {
                 console.log("Everything Correct");
             }
-
+            
             console.log("Password", userInput);
-
+            
+          
 
 
 
